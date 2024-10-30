@@ -232,7 +232,17 @@ Para llevarse a cabo debe haber dos desarrolladores simultaneamente, uno tendrá
 codificar, y el otro debe leer el código y revisarlo activamente.
 Los roles deben ser intercambiados periodicamente.
 
-# 7. ¿?
+# 7. ¿Que son y para que sirven los criterios de selección de tests?
+Dado que los casos de test podrían llegar a ser infinitos, o simplemente un número inviable
+por los costos del testing, se quiere poder testear hallando el mayor número de defectos
+en el código, con una cantidad razonable de tests cases.
 
-# 8.
-# 9.
+Los criterios de selección de tests son reglas/heuristicas que permiten hallar casos 
+de tests efectivos encontrando defectos, y descartando casos de tests que, según el
+criterio no hallarian nuevos defectos.
+
+Por ejemplo el criterio de clases de equivalencia considera, seprar el conjunto de 
+valores de entrada en subconjuntos llamados clases de equivalencia. Siguiendo este 
+criterio tomar una de las entradas de la clase de equivalencia, es representativo
+para todos los elementos de la misma clase de equivalencia, por lo que no hace 
+falta testear mas que una entrada por clase de equivalencia.
