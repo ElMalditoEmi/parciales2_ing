@@ -63,10 +63,176 @@ funcioncita(){
 }
 ```
 
-# 3.
-# 4.
-# 5.
-# 6.
-# 7.
+- Agregar/quitar atributos
+Quitar atributos puede simplificar las interfaces, baja el acoplamiento.
+Solo se debería agregar en caso que los datos no tengan la información suficiente para 
+realizar la función.
+
+Ej:
+```c
+print_name(name,surename,age,weight){
+    printf("%s.",name);
+}
+print_name_2(name,surename,age,weight){
+    printf("%s.",name);
+}
+```
+
+- Subir bajar metodos.
+Cuando un mismo metodo esta siendo declarado para varias clases hijas en la misma jerarquia
+seria mejor que estas, lo hereden.
+
+ej:
+```python
+
+class Mammal():
+    
+class Dog(Mammal):
+    def walk():
+        print("walking...")
+
+class Cat(Mammal):
+    def walk():
+        print("walking...")
+
+```
+Se cambia por:
+```python
+
+class Mammal():
+    def walk():
+        print("walking...")
+    
+class Dog(Mammal):
+
+class Cat(Mammal):
+
+
+```
+
+
+- Condicionales por polimorfismo
+Cuando la condición depende del tipo y se se esta chequeando con 'if', no se esta explotando
+el potencial de la orientacion a objetos. Manejar la condicion con polimorfismo es mejor.
+
+ej:
+```python
+class Dog(Mammal):
+
+class Cat(Mammal):
+
+
+def group_animals(animal):
+
+    if(animal is Dog):
+        dogs.append(animal)
+
+    if(animal is Cat):
+        cats.append(animal)
+
+```
+Cambia a:
+```python
+class Dog(Mammal):
+    def add_to_group()
+        dogs.append(self)
+
+class Cat(Mammal):
+    def add_to_group()
+        cats.append(self)
+
+
+def group_animals(animal):
+    animal.add_to_group()
+
+```
+
+Faltaria ver ejemplos de:
+- Desplazamiento de metodos
+
+- Desplazamiento de atributos
+
+- Extraccion de clases
+
+
+# 3. Elija dos modelos de proceso de desarrollo y comparelos
+Modelos elegidos: Iterativo, Prototipado
+
+Fortalezas de Iterativo:
+- Los pagos y las entregas son incrementales
+- Se provee feedback en cada iteración
+
+Debilidades de Iterativo:
+- El diseño y la arquitectura podrian no ser optimos
+- La revisión y el diseño pueden incrementarse
+- El costo total puede ser mayor
+
+Fortalezas de Prototipado:
+- Los requerimientos se congelan mas tarde
+- Feedback del cliente durante el prototipado
+- Los desarrolladores ganan experiencia con el problema durante el desarrollo del prototipo
+
+Debilidades de Prototipado:
+- Potencial impacto en costo y tiempo
+
+En proyectos de desarrollo donde los requerimientos podrian cambiar mucho, el modelo iterativo
+reacciona mejor el el prototipado. Además el feedback provisto por el iterativo es 
+en cada iteración del proceso de desarrollo, mientras que en el prototipado es un feedback
+inicial. Se puede perder mucho tiempo haciendo el prototipo, que encima sera descartado. El 
+modelo iterativo producira su implementación inicial como implementacion de un subconjunto del 
+problema completo pero siempre la usará hasta el final para el producto.
+
+# 4. ¿Cual es la principal motivación de tener un proceso de desarrollo de software separado en fases? ¿En que consiste el enfoque ETVX? Describa brevemente las actividades basicas del desarrollo de software
+
+# 5. Describa cuales son las diferentes fases del proceso de administracion del proyecto
+### 1. Planeamiento
+Se realiza antes de comenzar el proyecto, algunas actividades básicas son
+- Estimación de costos y esfuerzo
+- Selección del personal
+- Planear el seguimiento
+- Planear el control de calidad
+
+### 2. Seguimiento y control
+Esta fase esta activa mientras se trabaja en el proyecto.
+Sus actividades son:
+- Seguir y observar los parametros claves como: riesgo,tiempo,costo.
+- Tomar acciones correctivas si es necesario.
+
+### 3. Analisis y terminación
+Se hace al final del proyecto, o al final de cada iteración en modelos iterativos.
+
+El proposito principal es analizar el desempeño del proceso y las lecciones aprendidads
+
+La idea es mejorar el desempeño en futuros proyectos o en proximas iteraciones del mismo.
+
+# 6. Describa los procesos de códificacion: incremental, TDD, programación de a pares
+### Programación incremental
+Partiendo de la especificación de requerimientos, se escribe código que implementa
+la funcionalidad, posteriormente se escriben los test scripts para probar la funcionalidad
+implementada. Se correr los tests usando la implementación, si la funcionalidad no los
+pasa, debe ser corregida (se vuelve al paso anterior). En caso de pasarlos, se debe 
+verificar si todos los requerimientos estan implementados, si no lo están, se vuelve al 
+paso donde se escribe código para implementar la funcionalidad. En otro caso el producto de 
+trabajo puede ser revisado.
+
+### TDD
+En este caso, a partir de la especificacion de requerimientos se debe:
+1. Escribir los tests scripts que pueda pasar una implementación que implementa dichos requerimientos
+2. Escribir el código suficiente como para pasar los tests.
+3. Correr los tests scripts.
+4. Si el test halla un error, debe ser corregido y volver al paso 3.
+5. Si el código puede ser mejorado, debe volver al paso 2 y hacerlo.
+6. Si el código no cubre todos los requerimientos, volver al paso 1.
+
+En este proceso se depende mucho de la exhaustividad de los test para asegurar
+que todos los requerimeitnos están siendo cumplidos.
+
+### Programación de a pares
+Para llevarse a cabo debe haber dos desarrolladores simultaneamente, uno tendrá el rol de 
+codificar, y el otro debe leer el código y revisarlo activamente.
+Los roles deben ser intercambiados periodicamente.
+
+# 7. ¿?
+
 # 8.
 # 9.
